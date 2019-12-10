@@ -1,0 +1,12 @@
+version: "3.3"
+
+services:
+  qlik-engine:
+    container_name: qlik-engine
+    image: qlikcore/engine:12.515.0
+    restart: always
+    command: -S AcceptEULA=${ACCEPT_EULA} -S ScriptLogVerbosity=4
+    ports:
+      - "19076:9076"
+    volumes:
+      - ./data:/data
